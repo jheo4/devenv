@@ -1,0 +1,9 @@
+# On serverside 
+vim /etc/ssh/ssh_config 
+## add this line 
+Ciphers blowfish-cbc 
+## restart ssh 
+sudo service ssh restart
+
+# On clientside
+ssh -c arfour,blowfish-cbc -XC id@address

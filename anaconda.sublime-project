@@ -1,0 +1,29 @@
+# anaconda python auto complete with virtualenv setting 
+## working with sublime text3 
+{
+	"auto_complete" : false,
+	"auto_complete_delay": 10,
+	"build_systems":
+	[
+		{
+			"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+			"name": "Anaconda Python Builder",
+			"selector": "source.python",
+			"shell_cmd": "\"venv/bin/python\" -u \"$file\""
+		}
+	],
+	"folders":
+	[
+		{
+			"path": "."
+		}
+	],
+	"settings":
+	{
+		"extra_paths":
+		[
+			"venu/lib/python/site-packages/"
+		],
+		"python_interpreter": "venv/bin/python"
+	}
+}
