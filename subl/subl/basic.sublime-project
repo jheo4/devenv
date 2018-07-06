@@ -1,5 +1,3 @@
-# anaconda python auto complete with virtualenv setting 
-## working with sublime text3 
 {
 	"auto_complete" : false,
 	"auto_complete_delay": 10,
@@ -20,6 +18,9 @@
 	],
 	"settings":
 	{
+		"anaconda_linting" : false,
+		"use_pylint" : true,
+		"validate_imports" : true,
 		"extra_paths":
 		[
 			"venu/lib/python/site-packages/"

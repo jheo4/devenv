@@ -1,0 +1,84 @@
+set nocompatible
+set modeline
+set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp949,korea,iso-2022-kr
+setlocal spelllang=en_us
+set et
+set nu
+set smartindent autoindent
+set ruler
+set hlsearch
+set incsearch
+set ignorecase smartcase
+set history=999
+set undolevels=999
+
+set autoread
+set nobackup
+
+set showmatch
+set showmode
+set laststatus=2
+set title
+
+set expandtab
+set softtabstop=2
+set tabstop=2
+set smarttab
+set copyindent
+
+
+set ts=2 sts=2 sw=2
+set cursorline
+set background=dark
+set ttymouse=xterm2
+
+set rtp+=~/.fzf
+nmap <leader>f :FZF<CR>
+
+set guioptions=egmrLt
+set linespace=1
+set backspace=2
+set modeline
+set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp949,korea,iso-2022-kr
+
+setlocal spelllang=en_us
+
+syntax on
+au FileType cpp        setl ts=2 sw=2 sts=2
+au FileType c          setl ts=2 sw=2 sts=2
+au FileType py         setl ts=2 sw=2 sts=2
+au FileType md         setl ts=4 sw=4 sts=4
+au FileType make       setl ts=4 sw=4 sts=4 noet
+
+highlight ColorColumn cterm=underline ctermbg=none
+autocmd BufWinEnter * match Error /\%>79v.\+\|\s\+$\|^\s*\n\+\%$/
+
+function! InsertTabWrapper()
+  let col=col('.')-1
+  if !col||getline('.')[col-1]!~'\k'
+    return "\<TAB>"
+  else
+    if pumvisible()
+      return "\<C-N>"
+    else
+      return "\<C-N>\<C-P>"
+    end
+  endif
+endfunction
+
+inoremap <TAB> <c-r>=InsertTabWrapper()<cr>
+
+"hi Pmenu ctermbg=blue
+hi PmenuSel ctermbg=yellow ctermbg=black
+"hi PmenuSbar ctermbg=blue
+
+call plug#begin('~/.vim/plugged')
+Plug 'davidhalter/jedi-vim'
+Plug 'scrooloose/nerdtree'
+map <C-n> :NERDTreeToggle<CR>
+Plug 'justmao945/vim-clang'
+let g:clang_c_options = '-std=gnu11'
+let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
+Plug '~/.fzf'
+call plug#end()
+

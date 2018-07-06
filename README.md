@@ -1,20 +1,15 @@
 # Ubuntu Settings..
 
 ## VIM
-### move vimrc 
 mv vimrc ~/.vimrc
-### install vim Vundle 
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-### install 
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+           https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 :PluginInstall
 
 ## Sublime Text
-### install SubimeText 
 ./sublime.sh
-
-### install package controller
 ctrl + `
-
 
 paste below 
 
