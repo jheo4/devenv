@@ -7,3 +7,5 @@ sudo service ssh restart
 
 # On clientside
 ssh -c arfour,blowfish-cbc -XC id@address
+
+## WARNING : with this option, X-window is not available.
