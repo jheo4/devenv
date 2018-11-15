@@ -28,7 +28,7 @@ set copyindent
 
 
 set ts=2 sts=2 sw=2
-set cursorline
+"set cursorline
 set background=dark
 set ttymouse=xterm2
 
@@ -45,8 +45,12 @@ setlocal spelllang=en_us
 
 syntax on
 au FileType cpp        setl ts=2 sw=2 sts=2
+"au FileType cpp        let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 au FileType c          setl ts=2 sw=2 sts=2
+"au FileType c          let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+au FileType h          setl ts=2 sw=2 sts=2
 au FileType py         setl ts=2 sw=2 sts=2
+"au FileType py          let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 au FileType md         setl ts=4 sw=4 sts=4
 au FileType make       setl ts=4 sw=4 sts=4 noet
 
@@ -73,12 +77,11 @@ hi PmenuSel ctermbg=yellow ctermbg=black
 "hi PmenuSbar ctermbg=blue
 
 call plug#begin('~/.vim/plugged')
-Plug 'davidhalter/jedi-vim'
 Plug 'scrooloose/nerdtree'
+"Plug 'davidhalter/jedi-vim'
 map <C-n> :NERDTreeToggle<CR>
-Plug 'justmao945/vim-clang'
-let g:clang_c_options = '-std=gnu11'
-let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
+Plug 'Valloric/YouCompleteMe'
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
 Plug '~/.fzf'
 call plug#end()
-
