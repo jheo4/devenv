@@ -1,11 +1,26 @@
 # Ubuntu Settings..
 
 ## VIM
+```
 mv vimrc ~/.vimrc
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+vim           
+  :PluginInstall
 
-:PluginInstall
+```
+### Install YouCompleteMe
+```
+sudo apt install build-essential cmake python3-dev python-dev
+cd ~/.vim/plugged/YouCompleteMe/
+./install.sh --all
+```
+
+If there is a problem with fzf after these commands, 
+```
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+```
 
 ## Sublime Text
 ./sublime.sh
