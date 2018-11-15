@@ -3,6 +3,7 @@
 ## VIM
 ```
 mv vimrc ~/.vimrc
+mv ycm_extra_conf.py ~/.vim/.ycm_extra_conf.py
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim           
