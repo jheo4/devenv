@@ -1,10 +1,10 @@
 set nocompatible
 set modeline
 set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp949,korea,iso-2022-kr
-setlocal spelllang=en_us
 set et
 set nu
-set smartindent autoindent
+set smartindent
+set autoindent
 set ruler
 set hlsearch
 set incsearch
@@ -20,15 +20,12 @@ set showmode
 set laststatus=2
 set title
 
-set expandtab
-set softtabstop=2
-set tabstop=2
-set smarttab
 set copyindent
 
-
+set tabstop=2
+"set smarttab
 set ts=2 sts=2 sw=2
-"set cursorline
+set cursorline
 set background=dark
 set ttymouse=xterm2
 
@@ -38,50 +35,46 @@ nmap <leader>f :FZF<CR>
 set guioptions=egmrLt
 set linespace=1
 set backspace=2
-set modeline
-set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp949,korea,iso-2022-kr
-
-setlocal spelllang=en_us
-
-syntax on
-au FileType cpp        setl ts=2 sw=2 sts=2
-"au FileType cpp        let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-au FileType c          setl ts=2 sw=2 sts=2
-"au FileType c          let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-au FileType h          setl ts=2 sw=2 sts=2
-au FileType py         setl ts=2 sw=2 sts=2
-"au FileType py          let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-au FileType md         setl ts=4 sw=4 sts=4
-au FileType make       setl ts=4 sw=4 sts=4 noet
 
 highlight ColorColumn cterm=underline ctermbg=none
 autocmd BufWinEnter * match Error /\%>79v.\+\|\s\+$\|^\s*\n\+\%$/
 
-function! InsertTabWrapper()
-  let col=col('.')-1
-  if !col||getline('.')[col-1]!~'\k'
-    return "\<TAB>"
-  else
-    if pumvisible()
-      return "\<C-N>"
-    else
-      return "\<C-N>\<C-P>"
-    end
-  endif
-endfunction
+syntax on
+au FileType cpp        setl ts=2 sw=2 sts=2
+au FileType c          setl ts=2 sw=2 sts=2
+au FileType h          setl ts=2 sw=2 sts=2
+au FileType java       setl ts=2 sw=2 sts=2
+au Filetype python     setl ts=2 sw=2 sts=2
+au FileType md         setl ts=2 sw=2 sts=2
+au FileType make       setl ts=2 sw=2 sts=2 noet
 
-inoremap <TAB> <c-r>=InsertTabWrapper()<cr>
 
-"hi Pmenu ctermbg=blue
-hi PmenuSel ctermbg=yellow ctermbg=black
-"hi PmenuSbar ctermbg=blue
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
 
-call plug#begin('~/.vim/plugged')
-Plug 'scrooloose/nerdtree'
-"Plug 'davidhalter/jedi-vim'
+" Nerd Tree
+Plugin 'scrooloose/nerdtree'
 map <C-n> :NERDTreeToggle<CR>
-Plug 'Valloric/YouCompleteMe'
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-let g:ycm_confirm_extra_conf = 0
-Plug '~/.fzf'
-call plug#end()
+
+" Autocomplete Clang / Python
+Plugin 'Valloric/YouCompleteMe'
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+let g:ycm_auto_trigger = 1
+let g:ycm_min_num_of_chars_for_completion = 2
+"let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+nnoremap <C-g> :YcmCompleter GoTo<CR>
+nnoremap <C-d> :YcmCompleter GetDoc<CR>
+nnoremap <C-r> :YcmCompleter GoToReferences<CR>
+nnoremap <C-c> ::YcmForceCompileAndDiagnostics<CR>
+
+" ultisnips
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+let g:UltiSnipsExpandTrigger="<c-b>"
+let g:UltiSnipsJumpForwardTrigger="<c-y>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+call vundle#end()
+
