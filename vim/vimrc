@@ -40,6 +40,7 @@ highlight ColorColumn cterm=underline ctermbg=none
 autocmd BufWinEnter * match Error /\%>79v.\+\|\s\+$\|^\s*\n\+\%$/
 
 syntax on
+filetype plugin indent on
 au FileType cpp        setl ts=2 sw=2 sts=2
 au FileType c          setl ts=2 sw=2 sts=2
 au FileType h          setl ts=2 sw=2 sts=2
@@ -48,26 +49,28 @@ au Filetype python     setl ts=2 sw=2 sts=2
 au FileType md         setl ts=2 sw=2 sts=2
 au FileType make       setl ts=2 sw=2 sts=2 noet
 
-
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Nerd Tree
 Plugin 'scrooloose/nerdtree'
-map <C-n> :NERDTreeToggle<CR>
+map <C-t> :NERDTreeToggle<CR>
 
-" Autocomplete Clang / Python
+" C / C++ / Python / Java
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'starcraftman/vim-eclim'
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
-let g:ycm_auto_trigger = 1
 let g:ycm_min_num_of_chars_for_completion = 2
-"let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-nnoremap <C-g> :YcmCompleter GoTo<CR>
-nnoremap <C-d> :YcmCompleter GetDoc<CR>
-nnoremap <C-r> :YcmCompleter GoToReferences<CR>
-nnoremap <C-c> ::YcmForceCompileAndDiagnostics<CR>
+let g:syntastic_java_checkers = []
+let g:EclimCompletionMethod = 'omnifunc'
+
+" Falke8
+Plugin 'nvie/vim-flake8'
+
+" Syntax check
+Plugin 'scrooloose/syntastic'
+
 
 " ultisnips
 Plugin 'SirVer/ultisnips'
