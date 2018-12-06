@@ -15,9 +15,9 @@ flags = [
 '-DUSE_CLANG_COMPLETER',
 '-DYCM_EXPORT=',
 '-x', 'c++',
-'-isystem', '/usr/include/clang/3.9/include',
+'-x', 'c',
 '-isystem', '/usr/include/c++/7/',
-'-isystem', '/usr/include/'
+'-isystem', '/usr/include/',
 '-isystem', '-std=c++11'
 ]
 
