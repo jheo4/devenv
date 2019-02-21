@@ -11,7 +11,7 @@ set incsearch
 set ignorecase smartcase
 set history=999
 set undolevels=999
-
+"set mouse=a
 set autoread
 set nobackup
 
@@ -25,12 +25,12 @@ set copyindent
 set tabstop=2
 "set smarttab
 set ts=2 sts=2 sw=2
-set cursorline
+"set cursorline
 set background=dark
 set ttymouse=xterm2
 
 set rtp+=~/.fzf
-nmap <leader>f :FZF<CR>
+"nmap <leader>f :FZF<CR>
 
 set guioptions=egmrLt
 set linespace=1
@@ -42,6 +42,7 @@ autocmd BufWinEnter * match Error /\%>79v.\+\|\s\+$\|^\s*\n\+\%$/
 syntax on
 filetype plugin indent on
 au FileType cpp        setl ts=2 sw=2 sts=2
+
 au FileType c          setl ts=2 sw=2 sts=2
 au FileType h          setl ts=2 sw=2 sts=2
 au FileType java       setl ts=2 sw=2 sts=2
@@ -53,20 +54,63 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
+
+" create ctag/cscope database of Linux kernel: make ARCH=x86_64 cscope tags
+" ctags
+" ctags * : tag cur directory
+" ctags -R . : recursively tag cur directory
+" ctrl + ] : move to the func or structure of the cursor & push tag stack
+" ctrl + t : move back to the previous cursor & pop tag stack
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'
+set tag=./tags;/
+let g:easytags_async = 1
+let g:easytags_auto_highlight = 0
+let g:easytags_include_members = 1
+let g:easytags_dynamic_files = 1
+
+
+" cscope
+" # create cscope database
+" find . \( -name '*.c' -o -name '*.cpp' -o -name '*.cc' -o -name '*.h' -o -name '*.s' -o -name '*.S' \) > cscope.files
+" find . -name '*.py' > cscope.files
+" cscope -b -q -k
+" :cs add ./cscope.files
+"
+" # use cscope with the created database
+" \[s/g/d/c/t/e/f/i]
+"   s: symbol
+"   g: global definition
+"   d: callee of <STRING>
+"   c: caller of <STRING>
+"   t: text
+"   e: regular expression
+"   i: files including <STRING>
+Plugin 'ronakg/quickr-cscope.vim'
+
+
+" tagbar
+" +/- : open/close a member list
+Plugin 'majutsushi/tagbar'
+
+
 " Nerd Tree
 Plugin 'scrooloose/nerdtree'
-map <C-t> :NERDTreeToggle<CR>
+
 
 " C / C++ / Python / Java
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'starcraftman/vim-eclim'
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 let g:ycm_min_num_of_chars_for_completion = 2
+let g:ycm_show_diagnostics_ui = 0
 let g:syntastic_java_checkers = []
 let g:EclimCompletionMethod = 'omnifunc'
 
+
 " Falke8
 Plugin 'nvie/vim-flake8'
+
 
 " Syntax check
 Plugin 'scrooloose/syntastic'
