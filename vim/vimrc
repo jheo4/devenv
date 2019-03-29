@@ -70,23 +70,8 @@ let g:easytags_include_members = 1
 let g:easytags_dynamic_files = 1
 
 
-" cscope
-" # create cscope database
-" find . \( -name '*.c' -o -name '*.cpp' -o -name '*.cc' -o -name '*.h' -o -name '*.s' -o -name '*.S' \) > cscope.files
-" find . -name '*.py' > cscope.files
-" cscope -b -q -k
-" :cs add ./cscope.files
-"
-" # use cscope with the created database
-" \[s/g/d/c/t/e/f/i]
-"   s: symbol
-"   g: global definition
-"   d: callee of <STRING>
-"   c: caller of <STRING>
-"   t: text
-"   e: regular expression
-"   i: files including <STRING>
-Plugin 'ronakg/quickr-cscope.vim'
+"***** instead of cscope, use grep.
+"ex) grep -n <WORD> <dir/*.c>
 
 
 " tagbar
@@ -94,11 +79,19 @@ Plugin 'ronakg/quickr-cscope.vim'
 Plugin 'majutsushi/tagbar'
 
 
+" Markdown Preview
+"Plugin 'JamshedVesuna/vim-markdown-preview'
+Plugin 'shime/vim-livedown'
+
+
 " Nerd Tree
 Plugin 'scrooloose/nerdtree'
 
 
 " C / C++ / Python / Java
+" Java Setting
+" :ProejctCreate/ProjectList/ProjectOpen/ProjectClose after executing eclimd
+" set .classpath & .project
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'starcraftman/vim-eclim'
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"

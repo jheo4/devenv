@@ -7,18 +7,18 @@ import ycm_core
 
 DIR_OF_THIS_SCRIPT = p.abspath( p.dirname( __file__ ) )
 DIR_OF_THIRD_PARTY = p.join( DIR_OF_THIS_SCRIPT, 'third_party' )
-SOURCE_EXTENSIONS = [ '.cpp', '.cxx', '.cc', '.c', '.m', '.mm']
+SOURCE_EXTENSIONS = [ '.cpp', '.cxx', '.cc', '.c', '.m', '.mm', '.h']
 
 flags = [
 '-Wall', '-Wextra', '-Werror', '-Wno-long-long',
 '-Wno-variadic-macros', '-fexceptions', '-DNDEBUG',
 '-DUSE_CLANG_COMPLETER',
 '-DYCM_EXPORT=',
-#'-xc', '-xc++'
+#'-xc++',
 '-isystem', '/usr/include/c++/7/',
 '-isystem', '/usr/include/',
-#'-isystem', '-std=c++11'
-'-isystem', '-std=c99'
+'-isystem', '-std=c++11'
+#'-isystem', '-std=c99'
 ]
 
 compilation_database_folder = ''

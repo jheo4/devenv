@@ -1,0 +1,29 @@
+[user]
+	email = 993jin@gmail.com
+	name = Jin Heo
+[color]
+  ui = auto
+[color "branch"]
+  current = green bold
+  local = cyan bold
+  remote = red bold
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
+[color "status"]
+  added = green bold
+  changed = yellow bold
+  untracked = red bold
+[core]
+	editor = /usr/bin/vim
+[merge]
+  tool = vimdiff
+[rerere]
+  enabled = 1
+  autoupdate = 1
+[github]
+  user = jheo4
+  token = token
