@@ -1,0 +1,37 @@
+{
+  "suggest.maxCompleteItemCount": 20,
+  "suggest.timeout": 10000,
+  "diagnostic.errorSign": "!",
+  "diagnostic.warningSign": "?",
+  "diagnostic.infoSign": "▶",
+  "diagnostic.checkCurrentLine": true,
+  "jedi.executable.command": "jedi-language-server",
+  "languageserver": {
+    "clangd": {
+      "command": "clangd",
+      "args": ["--background-index"],
+      "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["c", "cpp", "objc", "objcpp"]
+    },
+    "rust": {
+      "command": "ra_lsp_server",
+      "filetypes": ["rust"],
+      "rootPatterns": ["Cargo.toml"]
+    },
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "filetypes": ["go"]
+    },
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    },
+    "digestif": {
+      "command": "digestif",
+      "filetypes": ["tex", "plaintex", "context"]
+    }
+  }
+}

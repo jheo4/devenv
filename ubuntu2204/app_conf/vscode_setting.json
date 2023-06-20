@@ -1,0 +1,40 @@
+{
+    "editor.tabSize": 2,
+    "debug.console.fontSize": 10,
+    "editor.tabCompletion": "on",
+    "files.trimTrailingWhitespace": true,
+    "editor.fontSize": 12,
+    "workbench.colorTheme": "Monokai",
+    "workbench.preferredDarkColorTheme": "Monokai",
+    "[python]": {
+        "editor.tabSize": 4,
+    },
+    "window.zoomLevel": 0,
+    "editor.rulers": [
+        80,
+        120
+    ],
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        { "before": ["j"], "after": ["h"] },
+        { "before": ["l"], "after": ["j"] },
+        { "before": [";"], "after": ["l"] },
+        { "before": ["k"], "after": ["k"] },
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        { "before": ["j"], "after": ["h"] },
+        { "before": ["l"], "after": ["j"] },
+        { "before": [";"], "after": ["l"] },
+        { "before": ["k"], "after": ["k"] },
+    ],
+    "breadcrumbs.enabled": true,
+    "explorer.confirmDragAndDrop": false,
+    "C_Cpp.updateChannel": "Insiders",
+    "editor.minimap.enabled": false,
+    "cmake.configureOnOpen": true,
+}
+

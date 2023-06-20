@@ -1,0 +1,20 @@
+# <TYPE> : <TITLE>
+# ------------------
+# <TYPE> lists
+#   feat    : features (new features)
+#   fix     : bugs (fix bugs)
+#   refactor: refactoring
+#   style   : style format related (non-logic change)
+#   docs    : document related (add, modify, remove)
+#   test    : test related (non-logic change)
+#   chore   : etc. (build scripts or other project chores)
+# ------------------
+
+##### TITLE up to 50 characters ############## -> |
+
+
+######## BODY, each line up to 72 characters ###################### -> |
+
+
+# Footer: ex) #Issue Number
+

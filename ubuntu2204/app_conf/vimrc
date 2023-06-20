@@ -1,0 +1,173 @@
+set nocompatible
+set modeline
+set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp949,korea,iso-2022-kr
+set et
+set nu
+set smartindent
+set autoindent
+set ruler
+set hlsearch
+set incsearch
+set ignorecase smartcase
+set history=999
+set undolevels=999
+"set mouse=a
+set autoread
+set nobackup
+set showmatch
+set showmode
+set laststatus=2
+set title
+
+" z=: correct spell suggestions
+set spell spelllang=en_us
+set copyindent
+
+set tabstop=2
+set smarttab
+set ts=2 sts=2 sw=2
+"color desert
+set cursorline
+hi CursorLine term=bold cterm=bold guibg=lightgrey ctermbg=8
+set background=dark
+set ttymouse=xterm2
+
+
+set guioptions=egmrLt
+set linespace=1
+set backspace=2
+
+set colorcolumn=80
+highlight ColorColumn ctermbg=4 guibg=lightgrey
+autocmd BufWinEnter * match Error /\s\+$\|^\s*\n\+\%$/
+
+syntax on
+filetype plugin indent on
+au FileType cpp        setl ts=2 sw=2 sts=2
+au FileType c          setl ts=2 sw=2 sts=2
+au FileType h          setl ts=2 sw=2 sts=2
+au FileType java       setl ts=2 sw=2 sts=2
+au Filetype python     setl ts=2 sw=2 sts=2
+au FileType md         setl ts=2 sw=2 sts=2
+au FileType make       setl ts=2 sw=2 sts=2 noet
+
+au BufRead,BufNewFile *.pyx set filetype=cython
+au Filetype cython     setl ts=2 sw=2 sts=2
+
+
+noremap ; l
+noremap l j
+noremap k k
+noremap j h
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+
+""""""""""""""""""""""""""""""" ETC """""""""""""""""""""""""""""""""""'""
+" LaTex Preview
+Plugin 'xuhdev/vim-latex-live-preview'
+let g:livepreview_cursorhold_recompile = 0
+
+" Markdown Preview
+Plugin 'iamcco/mathjax-support-for-mkdp'
+Plugin 'iamcco/markdown-preview.vim'
+
+
+" Nerd Tree
+Plugin 'scrooloose/nerdtree'
+
+
+" FZF
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+
+
+" Vim Theme
+Plugin 'altercation/vim-colors-solarized'
+
+
+" Anyfold
+"   za: fold/unfold
+autocmd Filetype * AnyFoldActivate
+set foldlevel=15
+Plugin 'pseewald/vim-anyfold'
+
+
+" Syntax check
+Plugin 'scrooloose/syntastic'
+
+
+""""""""""""""""""""""""""""""" IDE """"""""""""""""""""""""""""""""""""""
+" ultisnips
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+let g:UltiSnipsExpandTrigger="<c-b>"
+let g:UltiSnipsJumpForwardTrigger="<c-y>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+
+" create ctag/cscope database of Linux kernel: make ARCH=x86_64 cscope tags
+"   ctags
+"   ctags * : tag cur directory
+"   ctags -R . : recursively tag cur directory
+"   ctrl + ] : move to the func or structure of the cursor & push tag stack
+"   ctrl + t : move back to the previous cursor & pop tag stack
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'
+set tag=./tags;/
+let g:easytags_async = 1
+let g:easytags_auto_highlight = 1
+let g:easytags_include_members = 1
+let g:easytags_dynamic_files = 1
+
+
+"Cscope
+" Use grep instead
+" ex) grep -n <WORD> <dir/*.c>
+" For VIM, :copen and :grep
+
+
+" tagbar
+"   +/- : open/close a member list
+Plugin 'majutsushi/tagbar'
+
+
+" File Auto Comp
+"   <c-x><c-f>
+
+" Automatic popup completions
+Plugin 'AutoComplPop'
+
+" Git gutter
+Plugin 'airblade/vim-gitgutter'
+
+""""""""""""""" Programming Language Settings """""""""""""""""""""""
+" Python
+Plugin 'davidhalter/jedi-vim'
+
+
+" Clang
+".clang_complete
+"   -DDEBUG
+"   -include ../config.h
+"   -I../common
+"   -I/usr/include/c++/4.5.3/
+"   -I/usr/include/c++/4.5.3/x86_64-slackware-linux/
+Plugin 'rip-rip/clang_complete'
+let g:clang_library_path='/usr/lib/llvm-6.0/lib/libclang.so.1'
+let g:clang_complete_auto=1
+"let g:clang_library_path='/usr/lib64/libclang.so.3.8
+
+
+" Java
+"  <c-x><c-o>: auto-completion
+Plugin 'artur-shaik/vim-javacomplete2'
+setlocal omnifunc=javacomplete#Complete
+let g:JavaComplete_ClosingBrace=1
+"g:JavaComplete_LibsPath
+"g:JavaComplete_SourcesPath
+
+
+call vundle#end()
+
