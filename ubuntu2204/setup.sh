@@ -35,15 +35,14 @@ curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | 
 
 chsh -s $(which zsh)
 
-mkdir ~/github
 git clone https://github.com/jheo4/devenv.git ~/devenv
 mkdir --parents ~/.config/nvim
-cp ~/github/devenv_container/app_conf/init.vim ~/.config/nvim
-cp ~/github/devenv_container/app_conf/coc-settings.json ~/.config/nvim
-cp -rf ~/github/devenv_container/app_conf/vim-include ~/.config/nvim
-cp ~/github/devenv_container/app_conf/gitconfig ~/.gitconfig
-cp ~/github/devenv_container/app_conf/zshrc ~/.zshrc
-cp ~/github/devenv_container/app_conf/gitmessage.txt ~/.gitmessage.txt
+cp ~/devenv/app_conf/init.vim ~/.config/nvim
+cp ~/devenv/app_conf/coc-settings.json ~/.config/nvim
+cp -rf ~/devenv/app_conf/vim-include ~/.config/nvim
+cp ~/devenv/app_conf/gitconfig ~/.gitconfig
+cp ~/devenv/app_conf/zshrc ~/.zshrc
+cp ~/devenv/app_conf/gitmessage.txt ~/.gitmessage.txt
 git config --global commit.template ~/.gitmessage.txt
 
 cd ~/.fzf && ./install
