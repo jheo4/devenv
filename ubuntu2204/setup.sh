@@ -1,8 +1,7 @@
 # nodejs
 sudo apt install -yf software-properties-common sudo netcat curl git perl
 sudo add-apt-repository ppa:neovim-ppa/stable && sudo apt update
-curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-sudo apt -yf install nodejs
+sudo snap install node --classic --channel=16
 
 # yarn
 sudo npm install --global yarn

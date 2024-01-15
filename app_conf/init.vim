@@ -217,10 +217,6 @@ let g:OmniSharp_server_use_mono = 1
 
 " markdown preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
-function OpenMarkdownPreview (url)
-  execute "silent ! firefox --new-window " . a:url
-endfunction
-let g:mkdp_browserfunc = 'OpenMarkdownPreview'
 
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
@@ -228,11 +224,11 @@ Plug 'scrooloose/nerdtree'
 Plug 'mhinz/vim-startify'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'airblade/vim-gitgutter'
+Plug 'github/copilot.vim'
+
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
-Plug 'vim-airline/vim-airline'
-Plug 'ervandew/supertab'
 call plug#end()
 
 let g:coc_global_extensions=['coc-rls', 'coc-go', 'coc-java', 'coc-texlab', 'coc-jedi', 'coc-vimtex']
