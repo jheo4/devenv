@@ -8,6 +8,7 @@
 "   coc-texlab latex
 "   coc-python python
 
+:colorscheme slate
 set nocompatible
 set modeline
 set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp949,korea,iso-2022-kr
