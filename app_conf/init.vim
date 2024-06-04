@@ -40,7 +40,7 @@ set tabstop=2
 set ts=2 sts=2 sw=2
 "color desert
 set cursorline
-hi CursorLine term=bold cterm=bold guibg=lightgrey ctermbg=8
+hi CursorLine term=bold cterm=bold guibg=#6F6F6F ctermbg=8
 set background=dark
 
 
