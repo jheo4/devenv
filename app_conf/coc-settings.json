@@ -11,7 +11,7 @@
       "command": "clangd",
       "args": ["--background-index"],
       "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
-      "filetypes": ["c", "cpp", "objc", "objcpp"]
+      "filetypes": ["c", "cc", "cpp", "objc", "objcpp"]
     },
     "rust": {
       "command": "ra_lsp_server",
