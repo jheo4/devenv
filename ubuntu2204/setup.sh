@@ -1,7 +1,7 @@
 # nodejs
 sudo apt install -yf software-properties-common sudo netcat curl git perl
-sudo add-apt-repository ppa:neovim-ppa/stable && sudo apt update
-sudo snap install node --classic --channel=16
+sudo add-apt-repository ppa:neovim-ppa/unstable && sudo apt update
+sudo snap install node --classic
 
 # yarn
 sudo npm install --global yarn
