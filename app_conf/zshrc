@@ -83,4 +83,3 @@ export PATH=$HOME_DIR/mnt/github/usd_build/bin:$PATH
 export PYTHONPATH=$HOME_DIR/mnt/github/usd_build/lib/python:$PYTHONPATH
 
 export CPATH=/usr/include/x86_64-linux-gnu/c++/11:/usr/include/c++/11:$CPATH # clangd
-
