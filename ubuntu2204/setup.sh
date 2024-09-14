@@ -9,11 +9,11 @@ sudo npm i -g bash-language-server
 
 # dev tools
 sudo apt install -yf \
-	byobu git gdb gcc g++ python3 python3-pip llvm clang htop snapd \
-	neovim \
-	wget zsh fonts-powerline \
-	build-essential cmake python3-dev virtualenv default-jdk exuberant-ctags silversearcher-ag \
-	w3m caca-utils highlight atool poppler-utils mediainfo iputils-ping
+  byobu git gdb gcc g++ python3 python3-pip llvm clang htop snapd \
+  neovim \
+  wget zsh fonts-powerline \
+  build-essential cmake python3-dev virtualenv default-jdk exuberant-ctags silversearcher-ag \
+  w3m caca-utils highlight atool poppler-utils mediainfo iputils-ping
 sudo apt install -yf clangd
 
 # monitoring tools
@@ -26,7 +26,7 @@ sudo ln -s /usr/lib/llvm-14/lib/libclang.so.1 /usr/lib/llvm-14/lib/libclang.so
 
 # shell & vim setup
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 git clone https://github.com/powerline/fonts && cd fonts && ./install.sh && cd ~
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/zsh-syntax-highlighting
@@ -45,6 +45,7 @@ git clone git@github.com:jheo4/nvim_config.git ~/.config/nvim && . ~/.config/nvi
 
 cp ~/devenv/app_conf/gitconfig ~/.gitconfig
 cp ~/devenv/app_conf/zshrc ~/.zshrc
+cp ~/devenv/app_conf/XTerm ~/XTerm
 cp ~/devenv/app_conf/gitmessage.txt ~/.gitmessage.txt
 git config --global commit.template ~/.gitmessage.txt
 

@@ -1,0 +1,11 @@
+XTerm*Background: black
+XTerm*Foreground: white
+XTerm*font: 9x10
+XTerm*saveLines: 5000
+XTerm*HiForeColor: white
+XTerm*HiBackColor: #c06077
+XTerm*geometry: +50+100
+XTerm*selectToClipboard: true
+XTerm*vt100.translations: #override \
+    Shift Ctrl <Key> C: copy-selection(CLIPBOARD) \n\
+    Shift Ctrl <Key> V: insert-selection(CLIPBOARD)
