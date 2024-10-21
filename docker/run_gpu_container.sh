@@ -1,12 +1,14 @@
+#!/bin/bash
+
 # How to use:
 # ./run_gpu_container.sh CONTAINER_NAME IMAGE_NAME
 
-if [ "$#" -lt 2 ]; then
-  echo "Usage: ./run_gpu_container.sh CONTAINER_NAME IMAGE_NAME [MOUNT]"
+if [ $# -lt 2 ]; then
+  echo "Usage: ./run_gpu_container.sh CONTAINER_NAME IMAGE_NAME [DO_MOUNT]"
   exit 1
 fi
 
-if [ "$#" -eq 2]; then
+if [ $# -eq 2 ]; then
   docker run -it \
     --net=host \
     --ipc=host \
@@ -16,7 +18,9 @@ if [ "$#" -eq 2]; then
     -v /tmp/.X11-unix/:/tmp/.X11-unix/ \
     --privileged \
     --name $1 $2
-elif [ "$#" -eq 3]; then
+fi
+
+if [ $# -eq 3 ]; then
   docker run -it \
     --net=host \
     --ipc=host \
