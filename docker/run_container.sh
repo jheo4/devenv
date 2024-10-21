@@ -1,6 +1,11 @@
 # How to use:
 # ./run_container.sh CONTAINER_NAME IMAGE_NAME
 
+if [ "$#" -ne 2 ]; then
+  echo "Usage: ./run_container.sh CONTAINER_NAME IMAGE_NAME"
+  exit 1
+fi
+
 docker run -it \
   --net=host \
   --ipc=host \
