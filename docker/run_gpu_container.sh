@@ -1,8 +1,8 @@
 # How to use:
 # ./run_gpu_container.sh CONTAINER_NAME IMAGE_NAME
 
-if [ "$#" -ne 2 ]; then
-  echo "Usage: ./run_gpu_container.sh CONTAINER_NAME IMAGE_NAME"
+if [ "$#" -lt 2 ]; then
+  echo "Usage: ./run_gpu_container.sh CONTAINER_NAME IMAGE_NAME [MOUNT]"
   exit 1
 fi
 
