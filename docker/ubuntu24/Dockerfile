@@ -6,7 +6,8 @@ MAINTAINER Jin Heo <jheo33@gatech.edu>
 ARG DEBIAN_FRONTEND=noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
 
-ENV USERNAME=ubuntu # From 24.04, the default user is ubuntu
+# From 24.04, the default user is ubuntu
+ENV USERNAME=ubuntu
 
 # Install the necessary packages
 RUN apt update
