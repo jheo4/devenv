@@ -15,6 +15,7 @@ sudo apt install -yf \
   build-essential cmake python3-dev virtualenv default-jdk exuberant-ctags silversearcher-ag \
   w3m caca-utils highlight atool poppler-utils mediainfo iputils-ping
 sudo apt install -yf clangd
+sudo ln -s /usr/bin/nvim /usr/bin/vim
 
 # monitoring tools
 sudo apt install python3-psutil bpytop
