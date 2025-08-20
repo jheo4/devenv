@@ -11,7 +11,7 @@ ENV USERNAME=ubuntu
 
 # Install the necessary packages
 RUN apt update
-RUN apt install -yf software-properties-common sudo netcat-openbsd curl git perl python3 python3-pip
+RUN apt install -yf software-properties-common sudo netcat-openbsd curl git perl python3 python3-pip ca-certificates
 
 # Setup a non-root user
 # Create the user and group
