@@ -3,9 +3,10 @@ sudo add-apt-repository ppa:neovim-ppa/unstable && sudo apt update
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 \. "$HOME/.nvm/nvm.sh"
 nvm install 24
-node -v     # Should print "v24.6.0".
-nvm current # Should print "v24.6.0".
-npm -v      # Should print "11.5.1".
+node -v                         # Should print "v24.6.0".
+nvm current                     # Should print "v24.6.0".
+npm -v                          # Should print "11.5.1".
+npm config set strict-ssl false # just in case for local certificate issues
 npm install --global yarn
 npm i -g bash-language-server
 sudo apt install -yf \
