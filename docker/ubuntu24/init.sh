@@ -35,3 +35,6 @@ cp ~/devenv/app_conf/gitconfig ~/.gitconfig
 cp ~/devenv/app_conf/zshrc ~/.zshrc
 cp ~/devenv/app_conf/gitmessage.txt ~/.gitmessage.txt
 git config --global commit.template ~/.gitmessage.txt
+
+mkdir --parents ~/.config/byobu
+cp ~/devenv/app_conf/tmux.conf ~/.config/byobu/.tmux.conf
