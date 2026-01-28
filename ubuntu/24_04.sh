@@ -51,3 +51,6 @@ cp ~/devenv/app_conf/gitmessage.txt ~/.gitmessage.txt
 git config --global commit.template ~/.gitmessage.txt
 
 cd ~/.fzf && ./install
+
+# 355 for vs code dark
+bash -c "$(wget -qO- https://git.io/vQgMr)"
