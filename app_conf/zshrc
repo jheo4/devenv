@@ -7,9 +7,7 @@ HIST_STAMPS="yyyy-mm-dd"
 plugins=(git)
 
 # home dir variable
-export HOME_DIR="/home/jin" # change this to your home directory
-
-export ZSH=$HOME_DIR"/.oh-my-zsh"
+export ZSH=$HOME"/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 
 alias pre="cd .."
@@ -29,7 +27,7 @@ alias gitl="git log"
 alias gitlp="git log -p"
 alias gitlg="git log --oneline --graph --decorate --abbrev-commit"
 
-source $HOME_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -79,7 +77,8 @@ export CUDA_HOME=/usr/local/cuda
 export PATH=$CUDA_HOME/bin:$PATH
 export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
 
-export PATH=$HOME_DIR/mnt/github/usd_build/bin:$PATH
-export PYTHONPATH=$HOME_DIR/mnt/github/usd_build/lib/python:$PYTHONPATH
-
 export CPATH=/usr/include/x86_64-linux-gnu/c++/11:/usr/include/c++/11:$CPATH # clangd
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
