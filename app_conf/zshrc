@@ -73,12 +73,17 @@ echo -e "${LightGreen}========================================================"
 
 export EDITOR=nvim
 
+# CUDA environment variables
 export CUDA_HOME=/usr/local/cuda
 export PATH=$CUDA_HOME/bin:$PATH
 export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
 
 export CPATH=/usr/include/x86_64-linux-gnu/c++/11:/usr/include/c++/11:$CPATH # clangd
 
+# nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# direnv for .envrc hook
+eval "$(direnv hook zsh)"
