@@ -14,7 +14,7 @@ ARG USERNAME=ubuntu24_04
 # 4. package installation
 RUN apt-get update && apt-get install -y --no-install-recommends \
     software-properties-common ca-certificates curl wget gnupg \
-    tzdata software-properties-common sudo zsh netcat-openbsd git perl \
+    tzdata software-properties-common sudo zsh netcat-openbsd git perl unzip batcat \
     && add-apt-repository ppa:neovim-ppa/unstable -y \
     && apt-get update
 
@@ -24,6 +24,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     zsh fonts-powerline \
     build-essential cmake python3-dev virtualenv default-jdk exuberant-ctags silversearcher-ag \
     w3m caca-utils highlight atool poppler-utils mediainfo iputils-ping clangd bpytop pipx \
+    && ln -s /usr/bin/nvim /usr/bin/vim \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
