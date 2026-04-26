@@ -10,9 +10,9 @@ sudo npm i -g bash-language-server
 # dev tools
 sudo apt install -yf \
   byobu git gdb gcc g++ python3 python3-pip llvm clang htop snapd \
-  neovim \
+  neovim bat glow \
   wget zsh fonts-powerline \
-  build-essential cmake python3-dev virtualenv default-jdk exuberant-ctags silversearcher-ag \
+  build-essential cmake python3-dev virtualenv default-jdk exuberant-ctags silversearcher-ag fd-find \
   w3m caca-utils highlight atool poppler-utils mediainfo iputils-ping
 sudo apt install -yf clangd
 
@@ -23,6 +23,11 @@ sudo pip install diff-highlight
 
 # clagd
 sudo ln -s /usr/lib/llvm-14/lib/libclang.so.1 /usr/lib/llvm-14/lib/libclang.so
+
+# bat
+mkdir --parents ~/.local/bin
+ln -s /usr/bin/batcat ~/.local/bin/bat
+ln -s /usr/bin/fdfind ~/.local/bin/fd
 
 # shell & vim setup
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \

@@ -4,16 +4,14 @@ ZSH_THEME="daveverwer"
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="yyyy-mm-dd"
+HISTFILE=~/.zsh_history
+HISTSIZE=999999999
+SAVEHIST=$HISTSIZE
 plugins=(git)
 
 # home dir variable
 export ZSH=$HOME"/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
-
-alias pre="cd .."
-alias per="cd .."
-alias home="cd ~"
-alias root="cd /"
 
 alias gits="git status"
 alias gitc="git commit"
@@ -29,6 +27,20 @@ alias gitlg="git log --oneline --graph --decorate --abbrev-commit"
 
 source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# FZF options
+export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --border --prompt='🔍 ' --header='Tab: Select multiple | CTRL-\: Toggle Preview' -m
+  --preview '
+    if [ -d {} ]; then
+      ls -F --color=always {}
+    else
+      bat --style=numbers --color=always {} || head -200 {}
+    fi'
+  --preview-window 'right:60%:wrap:hidden'
+  --bind 'ctrl-\:toggle-preview'
+"
+export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:wrap" # Ctrl + R options: preview, preview window
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 NC='\033[0m'
@@ -47,22 +59,6 @@ LightBlue='\033[1;34m'
 LightPurple='\033[1;35m'
 LightCyan='\033[1;36m'
 White='\033[1;37m'
-
-print_greeting () {
-  hour=$1
-  if [ $hour -ge 6 ] && [ $hour -lt 12 ]
-  then
-    echo -e "${Yellow} 진님 좋은 아침입니다!"
-  elif [ $hour -ge 12 ] && [ $hour -lt 18 ]
-  then
-    echo -e "${Cyan} Good Afternoon, Jin ;)"
-  elif [ $hour -ge 18 ] && [ $hour -lt 24 ]
-  then
-    echo -e "${Green} Good Evening~!"
-  else
-    echo -e "${LightGray} Good Night ZzZz.."
-  fi
-}
 
 echo -e "${LightGreen}========================================================"
 echo -e "   ${Brown}[$(whoami)]   [$(hostname)]   ${NC}`date`"
