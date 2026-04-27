@@ -1,0 +1,55 @@
+services:
+  # 1. LLM Engine (Backend)
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    restart: always
+    volumes:
+      - ollama_data:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+  # 2. Chat UI (Frontend)
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
+    restart: always
+    ports:
+      - "3000:8080"
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+    volumes:
+      - open_webui_data:/app/backend/data
+    depends_on:
+      - ollama
+
+  # 3. Agent Gateway (Orchestrator) - OpenClaw
+  openclaw:
+    image: ghcr.io/openclaw/openclaw:latest
+    container_name: openclaw
+    user: "root"
+    restart: always
+    ports:
+      - "18789:18789"
+    environment:
+      - OPENCLAW_GATEWAY_BIND=lan
+      - OPENCLAW_HOME_VOLUME=true
+      - OPENCLAW_PLUGINS_BONJOUR_ENABLED=false
+      - OPENCLAW_MODELS_PROVIDERS_OLLAMA_BASEURL=http://ollama:11434
+      # set http://ollama:11434 as the Ollama address in OpenClaw internal settings.
+    volumes:
+      - ./openclaw_data:/root/.openclaw
+      - /var/run/docker.sock:/var/run/docker.sock # sandbox feature need access to docker socket
+    depends_on:
+      - ollama
+
+volumes:
+  ollama_data:
+  open_webui_data:
+  openclaw_config:
+  openclaw_workspace:
